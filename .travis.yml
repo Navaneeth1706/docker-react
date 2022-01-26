@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+ 
+ before_install:
+    - docker build -t navanee/docker-react Dockerfile.dev .
+    
+ script:
+    - docker run navanee/docker-react npm run test -- --coverage
